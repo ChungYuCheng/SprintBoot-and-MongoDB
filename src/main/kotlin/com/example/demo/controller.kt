@@ -18,7 +18,12 @@ class OrderController(@Autowired val ordersService: OrdersService) {
 		= ResponseEntity.ok(ordersService.getOrdersSize())
 
 	@GetMapping("/custNo")
-	fun getOrdersByCustNo(): ResponseEntity<String> {
+	fun getCustNoByCustNo(): ResponseEntity<String> {
 		return ResponseEntity.ok("找到的品號是 -> ${ordersService.getOrderByCustNo().custNo}")
+	}
+
+	@GetMapping("/order")
+	fun getOrdersByCustNo(): ResponseEntity<Orders> {
+		return ResponseEntity.ok(ordersService.getOrderByCustNo())
 	}
 }
